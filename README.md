@@ -8,6 +8,6 @@ Windows 32 ou 64 bits
 
 # Installeur : 
 
-Unitex : https://unitexgramlab.org/fr
+Unitex : https://unitexgramlab.org/fr \endl
 Sparql-Generate : 
 
