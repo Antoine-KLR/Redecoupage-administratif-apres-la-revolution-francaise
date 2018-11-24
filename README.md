@@ -28,7 +28,7 @@ La première phase de cet outil consiste à extraire les informations géographi
 Installations : 
 
 1. Installer Unitex, spécifier le dossier utilisateur.
-2. Extraire le contenu de l'archive *fichiers à extraire.zip* ("1.Grammaires/grammaires") dans le dossier utilisateur d'Unitex (généralement localisé à "C:\\*Username*\Documents\Unitex-GramLab\Unitex\French\").
+2. Extraire le contenu de l'archive *fichiers à extraire.zip* ("1.Grammaires") dans le dossier utilisateur d'Unitex (généralement localisé à "C:\\*Username*\Documents\Unitex-GramLab\Unitex\French\").
 
 Instructions : 
 
