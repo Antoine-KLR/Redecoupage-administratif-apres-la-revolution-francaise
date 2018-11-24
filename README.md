@@ -28,13 +28,15 @@ La première phase de cet outil consiste à extraire les informations géographi
 Installations : 
 
 1. Installer Unitex, spécifier le dossier utilisateur.
-2. Extraire le contenu du dossier *grammaire* ("1.Grammaires/grammaires") dans le dossier utilisateur "Graph" (généralement localisé à "C:\\*Username*\Documents\Unitex-GramLab\Unitex\French\Graphs").
-3. Extraire le contenu du dossier *cascade* ("1.Grammaires/cascades") dans le dossier utilisateur "CasSys" (généralement localisé ici : "C:\\*Username*\Documents\Unitex-GramLab\Unitex\French\CasSys").
+2. Extraire le contenu de l'archive *fichiers à extraire.zip* ("1.Grammaires/grammaires") dans le dossier utilisateur d'Unitex (généralement localisé à "C:\\*Username*\Documents\Unitex-GramLab\Unitex\French\").
 
 Instructions : 
 
 1. Exécuter le logiciel Unitex Visual IDE.
-2. 
+2. Ouvrir un texte.
+3. Décocher tous dans la boite de dialogue.
+4. dans Fichier > Apply Lexical Ressources, sélectionner *chefslieux.bin* et *toponyms.bin*, cliquer sur *set default* puis sur *apply*
+5. Appliquer les cascades dans l'ordre.
 
 
 
