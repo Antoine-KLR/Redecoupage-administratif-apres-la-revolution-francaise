@@ -28,7 +28,7 @@ La première phase de cet outil consiste à extraire les informations géographi
 Instructions : 
 
 1. Installer Unitex, spécifier le dossier utilisateur.
-2. Extraire le contenu du dossier grammaire ("1.Grammaires/grammaires") dans le dossier utilisateur "Graph" (généralement localisé à "\*Username*\Documents\Unitex-GramLab\Unitex\French\Graphs").
+2. Extraire le contenu du dossier grammaire ("1.Grammaires/grammaires") dans le dossier utilisateur "Graph" (généralement localisé à "\\*Username*\Documents\Unitex-GramLab\Unitex\French\Graphs").
 
 
 *username*
