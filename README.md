@@ -30,3 +30,6 @@ Instructions :
 1. Installer Unitex, spécifier le dossier utilisateur.
 2. Extraire le contenu du dossier grammaire ("1.Grammaires/grammaires") dans le dossier utilisateur "Graph" (généralement localisé à "\*Username*\Documents\Unitex-GramLab\Unitex\French\Graphs").
 
+
+*username*
+
