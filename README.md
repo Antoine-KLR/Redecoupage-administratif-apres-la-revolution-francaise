@@ -1,4 +1,4 @@
-# Redécoupage administratif après la révolution française
+# Réorganisation administrative pendant la révolution française
 
 Instructions pour reproduire la chaine de traitement (extraction, structuration, désambiguïsation) : 
 
