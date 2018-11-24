@@ -8,7 +8,7 @@ Système d'exploitation : Windows 32 ou 64 bits. Les logiciels suivant seront n�
 
 
 
-### Installeur : 
+### Installeurs : 
 
 Unitex : https://unitexgramlab.org/fr
 
@@ -35,3 +35,20 @@ Instructions :
 
 1. Exécuter le logiciel Unitex Visual IDE.
 2. 
+
+
+
+## 2ème Partie : Structurer les données
+
+Dans cette partie, nous allons voir comment structurer nos données et passer d'un fichier xml à un graph requêtable avec le langage SPARQL. Nous utiliserons les logiciels Sparql-Generate et GraphDB.
+
+
+
+
+
+## 3ème Partie : Désambiguïser les noms de lieux et les afficher.
+
+Ici nous utiliserons le code python et nous pourrons visualiser nos résultats à l'aide d'un SIG (par exemple QGIS).
+
+
+
