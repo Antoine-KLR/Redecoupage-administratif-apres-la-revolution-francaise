@@ -1,4 +1,66 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 1ère requête : pour ESN dans un article dans un décret %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  1ere requete : ESN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+PREFIX fun: <http://w3id.org/sparql-generate/fn/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ghd: <http://data.geohistoricaldata.org/def/statutadmin#>
+PREFIX iter: <http://w3id.org/sparql-generate/iter/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+GENERATE {
+   ?location_uri 	rdf:type  ghd:ESN;
+  					rdfs:label ?label;
+    				rdf:type ?type;
+    				ghd:hasEvolution [
+  							rdf:type ?typeEvol;
+      						ghd:sujet ?sujet;
+      						ghd:nouveau ?nouv
+  							].
+
+}
+SOURCE <http://input.xml> AS ?source
+ITERATOR iter:XPath(?source,"//esn") AS ?esn
+
+WHERE{
+  BIND(IRI(CONCAT("http://data.geohistoricaldata.org/id/statutadmin/esn/",STR(fun:XPath(?esn,"/esn/id/text()")))) AS ?location_uri).
+  BIND(STR(fun:XPath(?esn,"/esn/label/text()")) AS ?label).
+  BIND(IRI(CONCAT("http://data.geohistoricaldata.org/def/statutadmin#",STR(fun:XPath(?esn,"/esn/type/text()")))) AS ?type).
+  BIND(IRI(CONCAT("http://data.geohistoricaldata.org/def/statutadmin#",STR(fun:XPath(?esn,"/esn/evolution/@type")))) AS ?typeEvol).
+  BIND(STR(fun:XPath(?esn,"/esn/evolution/sujet/text()")) AS ?sujet).
+  BIND(STR(fun:XPath(?esn,"/esn/evolution/nouv/text()")) AS ?nouv).
+
+  
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 2eme requete : RELATIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+PREFIX fun: <http://w3id.org/sparql-generate/fn/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ghd: <http://data.geohistoricaldata.org/def/statutadmin#>
+PREFIX iter: <http://w3id.org/sparql-generate/iter/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+GENERATE {
+
+?domain ?typeRestr ?range. 
+    
+}
+SOURCE <http://input.xml> AS ?source
+
+ITERATOR iter:XPath(?source,"//restructuration") AS ?restr
+WHERE{
+    BIND(IRI(CONCAT("http://data.geohistoricaldata.org/def/statutadmin#",STR(fun:XPath(?restr,"//restructuration/@type")))) AS ?typeRestr).
+  BIND(IRI(CONCAT("http://data.geohistoricaldata.org/id/statutadmin/esn/",STR(fun:XPath(?restr,"/restructuration/domain/text()")))) AS ?domain).
+    BIND(IRI(CONCAT("http://data.geohistoricaldata.org/id/statutadmin/esn/",STR(fun:XPath(?restr,"/restructuration/range/text()")))) AS ?range).
+  
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 3ème requête : pour ESN dans un article dans un décret %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 PREFIX fun: <http://w3id.org/sparql-generate/fn/>
 PREFIX geo: <http://www.opengis.net/ont/geosparql#>
@@ -28,7 +90,7 @@ WHERE{
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%% 2ème requête : POUR LES esn ESN en DEHORS DES DECRETS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% 4ème requête : POUR LES esn ESN en DEHORS DES DECRETS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 PREFIX fun: <http://w3id.org/sparql-generate/fn/>
