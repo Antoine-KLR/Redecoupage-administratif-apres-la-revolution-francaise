@@ -1,0 +1,59 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 1ère requête : pour ESN dans un article dans un décret %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+PREFIX fun: <http://w3id.org/sparql-generate/fn/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ghd: <http://data.geohistoricaldata.org/def/statutadmin#>
+PREFIX iter: <http://w3id.org/sparql-generate/iter/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+GENERATE {
+   ?location_uri ghd:inArticle ?textearticle.
+   ?location_uri ghd:inDecret ?textedecret
+ 
+}
+SOURCE <http://input.xml> AS ?source
+
+ITERATOR iter:XPath(?source,"//decret") AS ?decret
+ITERATOR iter:XPath(?decret,"//article") AS ?article
+ITERATOR iter:XPath(?article,"//esn") AS ?esn
+
+
+WHERE{
+	BIND(IRI(CONCAT("http://data.geohistoricaldata.org/id/statutadmin/esn/",STR(fun:XPath(?esn,"/esn/id/text()")))) AS ?location_uri).
+	BIND(STR(fun:XPath(?decret,"/decret/headerprojet/csc/code/text()")) AS ?textedecret).
+	BIND(STR(fun:XPath(?article,"/article/headart/csc/code/text()")) AS ?textearticle).
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% 2ème requête : POUR LES esn ESN en DEHORS DES DECRETS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+PREFIX fun: <http://w3id.org/sparql-generate/fn/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ghd: <http://data.geohistoricaldata.org/def/statutadmin#>
+PREFIX iter: <http://w3id.org/sparql-generate/iter/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+GENERATE {
+
+   ?location_uri ghd:inArticle ?textearticle.
+   ?location_uri ghd:inDecret "NA"
+ 
+}
+SOURCE <http://input.xml> AS ?source
+
+ITERATOR iter:XPath(?source,"//tei/article") AS ?article
+ITERATOR iter:XPath(?article,"/article/localisation/csc/form/esn") AS ?esn
+
+
+WHERE{
+	BIND(IRI(CONCAT("http://data.geohistoricaldata.org/id/statutadmin/esn/",STR(fun:XPath(?esn,"/esn/id/text()")))) AS ?location_uri).
+	BIND(STR(fun:XPath(?article,"/article/headart/csc/code/text()")) AS ?textearticle).
+
+}
+
