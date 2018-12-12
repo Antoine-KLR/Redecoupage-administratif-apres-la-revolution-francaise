@@ -1,0 +1,15 @@
+{
+  "stream": true,
+  "query": "query.rqg",
+  "namedqueries": [],
+  "graph": "dataset/default.ttl",
+  "namedgraphs": [],
+  "documentset": [
+    {
+      "uri": "http://input.xml",
+      "mediatype": "application/xml",
+      "path": "documentset/input.xml"
+    }
+  ],
+  "log": "5"
+}
