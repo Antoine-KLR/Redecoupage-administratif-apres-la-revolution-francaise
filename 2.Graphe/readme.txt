@@ -9,7 +9,9 @@ La construction du graphe de connaissance se fait grâce à 4 requêtes SPARQL (
   
   
 
-A utiliser avec le "SPARQL-Generate Standalone Application", en renommant le fichier xml "input.xml" et en vérifiant dans le fichier de configuration "sparql-generate-conf.json" que stream soit sur true. Le fichier de configuration est donné ici.
+A utiliser avec le "SPARQL-Generate Standalone Application", en renommant le fichier xml "input.xml" et en vérifiant
+dans le fichier de configuration "sparql-generate-conf.json" que stream soit sur true. Le fichier de configuration
+est donné ici.
 
 
 
